@@ -12,6 +12,8 @@
     <OutputPath>.</OutputPath>
     <Name>EspejoVirtual</Name>
     <RootNamespace>EspejoVirtual</RootNamespace>
+    <InterpreterId>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</InterpreterId>
+    <InterpreterVersion>2.7</InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,9 +28,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="espejo_virtual.py" />
+    <Compile Include="test.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="webcam.py">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\2.7" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
