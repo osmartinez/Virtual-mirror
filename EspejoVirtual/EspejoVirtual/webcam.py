@@ -14,12 +14,13 @@ class Webcam:
         self.modelo = "data/face_landmarks.dat"
         self.detector = dlib.get_frontal_face_detector()
         self.predictor = dlib.shape_predictor(self.modelo)
-
+        
         while not self.capturador.isOpened():
             print 'Abriendo video...'
         self.imagen = self.capturador.read()[1]
         self.interrumpir = False
 
+        self.angulo_ojos = 0
         self.ojos_detectados = False
         self.coordenadas_gafas = (0,0)
 
@@ -51,7 +52,18 @@ class Webcam:
                 cv2.drawContours(self.imagen, [rightEyeHull], -1, (0, 255, 0), 1)
                 self.coordenadas_gafas = ((leftEye[0][0]+rightEye[len(rightEye)/2][0])/2, (leftEye[0][1]+rightEye[-1][1])/2)
                 cv2.circle(self.imagen, self.coordenadas_gafas, 1, (0,255,0),2)
+                self.calcular_angulo_ojos(leftEye[0],rightEye[0])
                 self.ojos_detectados = True
+
+    def calcular_angulo_ojos(self, pto_izq, pto_dch):
+        pto_aux = pto_izq[0],pto_dch[1]
+        cateto_opuesto = self.euclidean_dist(pto_izq,pto_aux)
+        hipotenusa = self.euclidean_dist(pto_aux,pto_dch)
+        seno_alpha = cateto_opuesto/hipotenusa
+        self.angulo_ojos = math.degrees(math.asin(seno_alpha))
+        if(pto_izq[1]<pto_dch[1]):
+            self.angulo_ojos*=-1
+        print str(self.angulo_ojos)
     def obtener_imagen(self):
         return self.imagen
 

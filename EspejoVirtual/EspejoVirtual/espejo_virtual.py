@@ -103,8 +103,6 @@ class EspejoVirtual:
         glDisable(GL_TEXTURE_2D)
         glLoadIdentity()
         glTranslatef(self.cam.coordenadas_gafas[0],415-self.cam.coordenadas_gafas[1],0)
-        print 'x: '+str(self.x)
-        self.x+=0.05
 
         glColor3fv((1, 1, 1))
         
@@ -112,6 +110,8 @@ class EspejoVirtual:
         #glRotate(90, 0, 1, 0)
         glRotate(180, 1, 0, 0)
         glRotate(180,0,0,1)
+
+        glRotate(self.cam.angulo_ojos,0,0,1)
 
         glCallList(self.obj.gl_list)
         
