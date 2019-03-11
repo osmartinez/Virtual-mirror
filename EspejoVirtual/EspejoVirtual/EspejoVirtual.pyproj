@@ -38,6 +38,18 @@
   <ItemGroup>
     <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\2.7" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\cubo.obj" />
+    <Content Include="data\face_landmarks.dat" />
+    <Content Include="data\gafas.obj" />
+    <Content Include="data\gafas2.obj" />
+    <Content Include="data\gafas3.obj" />
+    <Content Include="data\gafas4.obj" />
+    <Content Include="data\obama.mp4" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
