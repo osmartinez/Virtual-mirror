@@ -13,5 +13,4 @@ High accuracy and fast processing.
 - OpenGL for Python
 - Python 2.7
 
-
-[![Test1](https://imgur.com/jcfOB8A)]
+![](https://i.imgur.com/jcfOB8A.png)
