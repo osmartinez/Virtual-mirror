@@ -58,7 +58,7 @@ class Webcam:
     def calcular_angulo_ojos(self, pto_izq, pto_dch):
         pto_aux = pto_izq[0],pto_dch[1]
         cateto_opuesto = self.euclidean_dist(pto_izq,pto_aux)
-        hipotenusa = self.euclidean_dist(pto_aux,pto_dch)
+        hipotenusa = self.euclidean_dist(pto_izq,pto_dch)
         seno_alpha = cateto_opuesto/hipotenusa
         self.angulo_ojos = math.degrees(math.asin(seno_alpha))
         if(pto_izq[1]<pto_dch[1]):
